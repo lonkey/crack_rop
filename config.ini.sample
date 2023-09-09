@@ -1,0 +1,26 @@
+# Config file for crack_rop
+
+[DEFAULT]
+# Path to the rp++ executable
+rp_path=C:\tools\rp-win32.exe
+
+# Name of master file
+master_name=_master
+
+# Formatted name
+formatted_name=_formatted.txt
+
+# Each plugin should be on its own line
+enabled_line_plugins=
+    highlight_badchars
+    ; add_binary_name
+    add_binary_name_and_address
+    remove_double_spaces
+    modify_address_column
+    remove_found
+    remove_space_before_semicolon
+    ; clean_gadgets
+    write_master
+
+enabled_post_plugins=
+    sort_files
