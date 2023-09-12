@@ -68,7 +68,7 @@ Copy the output to a text file. This is what you want to provide as the `input_f
 Running `python crack_rop.py --help` will show you all available options:
 
 ```
-usage: parse_nmod.py [-h] [-g GADGET_SIZE] [-n] [-a] [-d] [-s] [-r] [-x] [-b BADCHARS] [-o] input_file
+usage: crack_rop.py [-h] [-g GADGET_SIZE] [-n] [-a] [-d] [-s] [-x] [-b BADCHARS] [-o] input_file
 
 Parse nmod output and run rp++ on each.
 
@@ -84,13 +84,12 @@ options:
   -d, --allow_dep       Allow binaries protected by DEP, default is False
   -s, --require_safe_seh_off
                         Only include binaries where SafeSEH is OFF, default is False
-  -r, --run_format_rp   Will run format_rp on each of the output files, default is False
   -x, --auto-delete     Will not ask before deleting existing folders, default is False.
   -b BADCHARS, --badchars BADCHARS
                         Bad Characters (format: '\x00\x0a')
   -o, --use-offsets     Will use offsets instead of exact addresses.
 
-Example: python parse_nmod.py nmod_output.txt
+Example: python crack_rop.py modules.txt
 ```
 
 An example of running the script may look like:

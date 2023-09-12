@@ -6,7 +6,7 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        prog="parse_nmod.py",
+        prog="crack_rop.py",
         description="Parse nmod output and run rp++ on each.",
         epilog="Example: python crack_rop.py modules.txt",
     )
