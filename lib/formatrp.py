@@ -1,8 +1,6 @@
 import importlib
 
 import lib.utils
-import plugins
-from lib.utils import read_config
 
 
 class Format_RP:

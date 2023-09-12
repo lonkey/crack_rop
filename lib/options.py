@@ -46,13 +46,6 @@ def parse_args():
         action="store_true",
     )
     parser.add_argument(
-        "-r",
-        "--run_format_rp",
-        default=False,
-        help="Will run format_rp on each of the output files, default is False",
-        action="store_true",
-    )
-    parser.add_argument(
         "-x",
         "--auto-delete",
         default=False,
