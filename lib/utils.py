@@ -1,4 +1,5 @@
 import os
+import sys
 import shutil
 import configparser
 import subprocess
@@ -47,7 +48,14 @@ def run_rp(data, gadget_size, use_offsets, encoding="utf-8"):
     if use_offsets:
         command += " --va 0"
     print(f"Running: {command}")
-    proc = subprocess.run(command, capture_output=True, check=True)
+    try:
+        proc = subprocess.run(command, capture_output=True, check=True)
+    except subprocess.CalledProcessError:
+        print(
+            "Error running RP++. Are you using a new(ish) version?"
+            " Check the README for info. Exiting..."
+        )
+        sys.exit(-1)
     with open(data["output_path"], "w", encoding=encoding) as f:
         stdout = proc.stdout.decode().splitlines()
         for line in stdout:

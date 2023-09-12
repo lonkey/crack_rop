@@ -11,10 +11,17 @@ import lib.formatrp
 
 
 def main(args):
+    # Sanity Checks
+    if not Path("config.ini").is_file():
+        print(
+            "Cound not find config file. Try copying"
+            "'config.ini.sample' to 'config.ini'. Exiting..."
+        )
+        sys.exit(-1)
+
     config = lib.utils.read_config()
     input_file = Path(args.input_file)
 
-    # Sanity Checks
     rp_path = Path(config["DEFAULT"]["rp_path"])
     if not rp_path.is_file():
         print(f"Could not find rp++: {rp_path}")
