@@ -14,7 +14,7 @@ def main(args):
     # Sanity Checks
     if not Path("config.ini").is_file():
         print(
-            "Cound not find config file. Try copying"
+            "Cound not find config file. Try copying "
             "'config.ini.sample' to 'config.ini'. Exiting..."
         )
         sys.exit(-1)
