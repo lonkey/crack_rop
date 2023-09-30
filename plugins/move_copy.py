@@ -11,6 +11,8 @@ and quick access to the action I want.
 import re
 import itertools
 
+import lib.utils
+
 
 REGEXS = [
     r".*mov {dest}, {source}(?!.*pop {dest}.*).*(?:ret[ ]*;|retn 0x00[012][0-9A-F][ ]*;).*",
@@ -46,12 +48,11 @@ def write_output(dest_file_path, findings):
 
 
 def main(output_dir_path):
-    file_name = "_master"
-    print("Finding Move/Copy in  _master.txt")
-    parent_dir = output_dir_path.parent.absolute()
-    file_path = parent_dir.joinpath(file_name)
-    source_file_path = file_path.joinpath(file_name + ".txt")
-    dest_file_path = file_path.joinpath("_move_copy.md")
+    config = lib.utils.read_config()
+    master_name = config["DEFAULT"]["master_name"]
+    print(f"Finding Move/Copy in  {master_name}.txt")
+    source_file_path = output_dir_path.joinpath(master_name + ".txt")
+    dest_file_path = output_dir_path.joinpath("_move_copy.md")
     findings = {}
     with open(source_file_path, "r", encoding="utf-8") as f:
         content = f.read()

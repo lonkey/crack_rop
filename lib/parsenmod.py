@@ -49,14 +49,15 @@ class ParseNmod:
             sys.exit(-1)
         binary_path = Path(m[1])
         output_file_name = binary_path.parts[-1].split(".")[0].lower() + ".txt"
-        output_path = self.parent_dir.joinpath(output_file_name)
+        output_dir = self.parent_dir.joinpath("output")
+        output_file_path = output_dir.joinpath(output_file_name)
         return {
             "base_address": base_address,
             "binary_path": binary_path,
             "safe_seh_off": safe_seh_off,
             "has_aslr": has_aslr,
             "has_dep": has_dep,
-            "output_path": output_path,
+            "output_path": output_file_path,
             "library_name": library_name,
         }
 

@@ -19,10 +19,10 @@ def build_index(file_path):
 
 def sort_file(output_dir_path, file_name):
     print(f"Sorting {file_name}")
-    parent_dir = output_dir_path.parent.absolute()
-    file_path = parent_dir.joinpath(file_name)
-    source_file_path = file_path.joinpath(file_name + ".txt")
-    dest_file_path = file_path.joinpath("_temp.txt")
+    # parent_dir = output_dir_path.parent.absolute()
+    # file_path = output_dir_path.joinpath(file_name)
+    source_file_path = output_dir_path.joinpath(file_name + ".txt")
+    dest_file_path = output_dir_path.joinpath("_temp.txt")
     index = build_index(source_file_path)
     with open(source_file_path, "r", encoding="utf-8") as f:
         with open(dest_file_path, "w", encoding="utf-8") as g:

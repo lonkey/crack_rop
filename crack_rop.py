@@ -38,12 +38,14 @@ def main(args):
         print("Could not find any binaries that satisfy the requirements... Exiting")
         sys.exit(-1)
 
+    # Make output directory
+    parent_dir = input_file.parent.absolute()
+    output_dir = parent_dir.joinpath("output")
+    output_dir.mkdir(exist_ok=True)
+
     # Run RP++ for each binary
     for binary_data in pn.parsed_data:
         lib.utils.run_rp(binary_data, args.gadget_size, args.use_offsets)
-
-    # Create master output folder
-    lib.utils.create_folder(pn.parent_dir, config["DEFAULT"]["master_name"], args.auto_delete)
 
     # Format rp++ output
     lib.formatrp.Format_RP(args, pn.parsed_data)

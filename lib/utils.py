@@ -23,6 +23,17 @@ def delete_folder_contents(folder_path):
             print(f"Failed to delete {file_path}. Reason: {e}")
 
 
+def delete_file(file_path, auto_delete):
+    """Deletes a single file"""
+    if file_path.exists() and file_path.is_file():
+        if auto_delete:
+            print(f"File {file_path} already exists. Deleting existing file")
+            file_path.unlink()
+        else:
+            print(f"File {file_path} already exists. Exiting...")
+            sys.exit(-1)
+
+
 def create_folder(parent_dir, binary_name, auto_delete):
     """Creates a folder for script output, returns folder path"""
     binary_name = binary_name.replace(".", "_")
